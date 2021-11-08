@@ -24,11 +24,15 @@ export default {
     },
     methods:{
       async adduser(){
-      axios.post('http://localhost:3000/user',{
+     let result = await axios.post('http://localhost:3000/user',{
                 firstName:this.user.firstName,
                 lastname:this.user.lastname,
                 email:this.user.email
             })
+            console.log(result.status)
+              if(result.status == 200){
+            this.$router.push({name:'Home'})
+        }
            
         }
     },
