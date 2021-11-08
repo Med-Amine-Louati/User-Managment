@@ -22,6 +22,7 @@ export default {
              }
         }
     },
+        //get user to edited by his id and pass the value to input
     async mounted(){
          const result = await axios.get('http://localhost:3000/user/'+this.$route.params.id)
          console.log(result.data)
@@ -29,8 +30,9 @@ export default {
 
     },
 methods:{
+    //update user by ID
     async updateuser(){
-        let result= await axios.put('http://localhost:3000/user/'+this.$route.params.id,{
+            let result= await axios.put('http://localhost:3000/user/'+this.$route.params.id,{
             firstName:this.user.firstName,
             lastname:this.user.lastname,
             email:this.user.lastname

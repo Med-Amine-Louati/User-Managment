@@ -37,20 +37,19 @@ data(){
 },
 
 methods:{
+    //delete user by id
 async deleteuser(id){
  const result = await axios.delete("http://localhost:3000/user/"+id);
  if(result.status == 200){
+     //reload page after dalete user
      this.$router.go()
  }
 
 },
-async loadData(){
-     let result =await axios.get('http://localhost:3000/user')
-    console.warn(result.data)
-    this.users=result.data
-}
+
 
 },
+//get all the user from the database
 async mounted(){
     let result =await axios.get('http://localhost:3000/user')
     console.warn(result.data)

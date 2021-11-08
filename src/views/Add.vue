@@ -23,6 +23,7 @@ export default {
         }
     },
     methods:{
+        //Post request to add user to the json data base
       async adduser(){
      let result = await axios.post('http://localhost:3000/user',{
                 firstName:this.user.firstName,
@@ -30,6 +31,7 @@ export default {
                 email:this.user.email
             })
             console.log(result.status)
+            //when then response is done navigate to the Home page
               if(result.status == 200){
             this.$router.push({name:'Home'})
         }
